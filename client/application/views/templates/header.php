@@ -18,7 +18,7 @@
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="<?= base_url(); ?>">API UNPAD</a>
+      <a class="navbar-brand" href="<?= base_url(); ?>">Akademik Unpad</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

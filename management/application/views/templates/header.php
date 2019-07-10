@@ -61,6 +61,7 @@
           <span>API</span></a>
       </li>
 
+<<<<<<< HEAD
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -106,6 +107,14 @@
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
+=======
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>api/newApi">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Create new API</span></a>
+      </li>
+
+>>>>>>> 9a272177c99c1c103f856119b9e87b083e1d9ed9
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

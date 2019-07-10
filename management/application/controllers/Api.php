@@ -7,7 +7,6 @@ class Api extends CI_Controller
     {
         parent::__construct();
         $this->load->model("api/Api_model");
-        $this->load->model("api/Get_model");
 
         $this->load->library("form_validation");
     }
@@ -23,7 +22,7 @@ class Api extends CI_Controller
 
     public function get()
     {
-        $data['table'] = $this->Get_model->getAllTable();
+        $data['table'] = $this->Api_model->getTableApi("GET");
 
         $this->load->view("templates/header");
         $this->load->view("api/get", $data);
@@ -32,22 +31,28 @@ class Api extends CI_Controller
 
     public function post()
     {
+        $data['table'] = $this->Api_model->getTableApi("POST");
+
         $this->load->view("templates/header");
-        $this->load->view("api/post");
+        $this->load->view("api/post", $data);
         $this->load->view("templates/footer");
     }
 
     public function delete()
     {
+        $data['table'] = $this->Api_model->getTableApi("DELETE");
+
         $this->load->view("templates/header");
-        $this->load->view("api/delete");
+        $this->load->view("api/delete", $data);
         $this->load->view("templates/footer");
     }
 
     public function put()
     {
+        $data['table'] = $this->Api_model->getTableApi("PUT");
+
         $this->load->view("templates/header");
-        $this->load->view("api/put");
+        $this->load->view("api/put", $data);
         $this->load->view("templates/footer");
     }
 
@@ -63,7 +68,7 @@ class Api extends CI_Controller
         } else {
             $this->Api_model->create();
             $this->session->set_flashdata("flash", "Create");
-            redirect("api/newApi");
+            redirect("api/index");
         }
     }
 

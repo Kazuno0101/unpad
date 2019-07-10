@@ -12,12 +12,12 @@
   <title>UNPAD API Management</title>
 
   <!-- Custom fonts for this template-->
-  <link href="<?=base_url();?>asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?= base_url(); ?>asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <link href="<?=base_url();?>asset/css/bootstrap.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>asset/css/bootstrap.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="<?=base_url();?>asset/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>asset/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url();?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -42,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<?=base_url();?>">
+        <a class="nav-link" href="<?= base_url(); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -56,15 +56,9 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>api/index">
+        <a class="nav-link" href="<?= base_url(); ?>api/index">
           <i class="fas fa-fw fa-table"></i>
           <span>API</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>api/newApi">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Create new API</span></a>
       </li>
 
       <!-- Divider -->
@@ -120,7 +114,7 @@
     </ul>
     <!-- End of Sidebar -->
 
-    
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 

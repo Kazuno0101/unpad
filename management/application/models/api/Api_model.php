@@ -12,6 +12,14 @@ class Api_model extends CI_Model
     }
   }
 
+  public function getTableApi($api)
+  {
+    $this->db->select('*');
+    $this->db->from('api');
+    $this->db->where('type', $api);
+    return $this->db->get()->result_array();
+  }
+
   public function create()
   {
     $data = [

@@ -36,7 +36,7 @@
               <tr>
                 <th>Id</th>
                 <th>API Name</th>
-                <th>Url</th>
+                <th class="w-50">Url</th>
                 <th>Status</th>
                 <th class="text-center">Action</th>
               </tr>
@@ -52,19 +52,9 @@
                     <?= $tbl['apiName']; ?>
                   </td>
                   <td>
-                    <a href="<?= $tbl['url']; ?>"><?= $tbl['url']; ?></a>
-
-                    <a class="float-right mr-1" rel='nofollow' href='https://www.facebook.com/sharer.php?u=URL'>
-                      <img src='http://syam.eu.org/icon/fb.jpg' alt='' width='25' height='25'></a>
-
-                    <a class="float-right mr-1" rel='nofollow' href='https://plus.google.com/share?url=URL'>
-                      <img src='http://syam.eu.org/icon/g.jpg' alt='' width='25' height='25'></a>
-
-                    <a class="float-right mr-1" rel='nofollow' href='http://www.linkedin.com/shareArticle?mini=true&url=URL'>
-                      <img src='http://syam.eu.org/icon/in.jpg' alt='' width='25' height='25'></a>
-
-                    <a class="float-right mr-1" rel='nofollow' href='https://twitter.com/share?url=URL'>
-                      <img src='http://syam.eu.org/icon/tw.jpg' alt='' width='25' height='25'></a>
+                    <input class="border-0 w-75 text" type="text" value="<?= $tbl['url']; ?>" id="pilih" readonly />
+                    <a href="<?= $tbl['url']; ?>" target="_blank" rel="nofollow" title="Data API" class="btn btn-dark btn-sm float-right mr-1" onclick="copy_text()">Go To</a>
+                    <button class="btn btn-dark btn-sm float-right mr-1" type="button" onclick="copy_text()">Copy</button>
 
                   </td>
                   <td>
@@ -88,3 +78,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function copy_text() {
+    document.getElementById("pilih").select();
+    document.execCommand("copy");
+  }
+</script>

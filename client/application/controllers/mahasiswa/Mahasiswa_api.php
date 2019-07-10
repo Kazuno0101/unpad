@@ -17,7 +17,7 @@ class Mahasiswa_api extends CI_Controller
 
             if ($this->form_validation->run() == false) {
                   $this->load->view('templates/header', $data);
-                  $this->load->view('mahasiswa/tambahMahasiswa', $data);
+                  $this->load->view('mahasiswa/create/tambahMahasiswa', $data);
                   $this->load->view('templates/footer');
             } else {
                   $this->Mahasiswa_model->tambahDataMahasiswa();

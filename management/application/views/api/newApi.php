@@ -41,7 +41,7 @@
   <div class="form-group row">
     <label for="url" class="col-md-2 col-form-label">URl</label>
     <div class="col-md-10">
-      <input type="text" class="form-control" name="url" id="url" placeholder="Url">
+      <input type="file" class="form-control" name="url" id="url" placeholder="Url">
       <small class="form-text text-danger"><?= form_error("url") ?></small>
     </div>
   </div>

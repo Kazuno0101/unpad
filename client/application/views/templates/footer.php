@@ -3,7 +3,7 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-sm-12">
-          <p>&copy;Copyright | built by <a href="http://instagram.com/kazuno_nuno">Nuno Alwi Azimah</a>.</p>
+          <p>&copy;Copyright | built by SMKN 2 Sumedang</a>.</p>
         </div>
       </div>
     </div>

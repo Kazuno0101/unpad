@@ -9,6 +9,8 @@ class Api extends CI_Controller
         $this->load->model("api/Api_model");
 
         $this->load->library("form_validation");
+
+        $this->load->library('ftp');
     }
 
     public function index()
@@ -58,18 +60,33 @@ class Api extends CI_Controller
 
     public function newApi()
     {
+
+        $config['hostname'] = '127.0.0.1';
+        $config['username'] = 'nuno';
+        $config['password'] = 'nuno';
+        $config['port']     = "21";
+        $config['debug']    = TRUE;
+
+        $this->ftp->connect($config);
+
+        $data["list"] = $this->ftp->list_files('/api/');
+        $data["list2"] = $this->ftp->list_files('/mahasiswa/');
+
         $this->form_validation->set_rules("apiName", "Api Name", "required");
         $this->form_validation->set_rules("url", "URL", "required|min_length[25]");
 
         if ($this->form_validation->run() == false) {
             $this->load->view("templates/header");
-            $this->load->view("api/newApi");
+            $this->load->view("api/newApi", $data);
             $this->load->view("templates/footer");
         } else {
             $this->Api_model->create();
             $this->session->set_flashdata("flash", "Create");
             redirect("api/index");
         }
+
+
+        $this->ftp->close();
     }
 
     public function deleteApi($id, $api)

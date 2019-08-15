@@ -36,7 +36,6 @@
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/dosen">Dosen</a>
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/mahasiswa">Mahasiswa</a>
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/mataKuliah">Mata Kuliah</a>
-              <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/perkuliahan">Perkuliahan</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>

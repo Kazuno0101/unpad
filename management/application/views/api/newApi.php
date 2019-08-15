@@ -4,12 +4,12 @@
 
     <?php if ($this->session->flashdata("flash")) { ?>
 
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
     <?php }; ?>
 
@@ -39,10 +39,27 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="url" class="col-md-2 col-form-label">URl</label>
+    <label for="url" class="col-md-2 col-form-label">File</label>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-primary" id="btnFile">Check</button>
+    </div>
+    <div class="col-md-9">
+      <select class="form-control" name="file" id="file">
+        <?php foreach ($list as $l) { ?>
+        <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
+        <?php } ?>
+        <?php foreach ($list2 as $l) { ?>
+        <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
+        <?php } ?>
+    </div>
+    </select>
+  </div>
+  </div>
+  <div class="form-group row">
+    <label for="url" class="col-md-2 col-form-label">Url</label>
     <div class="col-md-10">
-      <input type="file" class="form-control" name="url" id="url" placeholder="Url">
-      <small class="form-text text-danger"><?= form_error("url") ?></small>
+      <input type="text" class="form-control" name="url" id="url" placeholder="Tekan tombol Check">
+      <small class="form-text text-danger"><?= form_error("apiName") ?></small>
     </div>
   </div>
   <div class="form-group row">
@@ -60,3 +77,38 @@
     </div>
   </div>
 </form>
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#btnFile').click(function() {
+      var file = $("#file").val();
+      var type = $("#type").val();
+
+      var split = file.split("/");
+      var split2 = split[2].split(".");
+
+      if (type == "GET") {
+
+        $("#url").val("http://localhost/pkl/tugas/server/" + split[1] + "/" + split2[0]);
+
+      } else if (type == "POST") {
+
+        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/" + split2[0] + "_api/tambah");
+
+      } else if (type == "DELETE") {
+
+        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/MahasiswaMaster/" + split2[0]);
+
+      } else if (type == "PUT") {
+
+        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/MahasiswaMaster/" + split2[0]);
+
+      }
+    });
+  });
+</script>

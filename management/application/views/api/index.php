@@ -4,12 +4,12 @@
 
     <?php if ($this->session->flashdata("flash")) { ?>
 
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
     <?php }; ?>
 
@@ -93,7 +93,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">List API</h6>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -117,25 +117,28 @@
             </tfoot>
             <tbody>
 
-              <?php foreach ($table as $tbl) { ?>
-                <tr>
-                  <td>
-                    <?= $tbl['id']; ?>
-                  </td>
-                  <td>
-                    <?= $tbl['apiName']; ?>
-                  </td>
-                  <td>
-                    <?= $tbl['type']; ?>
-                  </td>
-                  <td>
-                    <?= $tbl['url']; ?>
-                  </td>
-                  <td>
-                    <?= $tbl['status']; ?>
-                  </td>
-                </tr>
-              <?php }; ?>
+              <?php $i = 1;
+              foreach ($table as $tbl) { ?>
+              <tr>
+                <td>
+                  <?= $i ?>
+                </td>
+                <td>
+                  <?= $tbl['apiName']; ?>
+                </td>
+                <td>
+                  <?= $tbl['type']; ?>
+                </td>
+                <td>
+                  <?= $tbl['url']; ?>
+                </td>
+                <td>
+                  <?= $tbl['status']; ?>
+                </td>
+              </tr>
+              <?php
+                $i++;
+              }; ?>
 
             </tbody>
           </table>

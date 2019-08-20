@@ -9,6 +9,13 @@ class Mahasiswa_model extends CI_model
 
     public function __construct()
     {
+
+
+        parent::__construct();
+        if (!$this->session->userdata('email')) {
+            redirect('login');
+        }
+
         $this->_client = new Client([
             "base_uri" => "http://localhost/pkl/tugas/server/mahasiswa/"
         ]);

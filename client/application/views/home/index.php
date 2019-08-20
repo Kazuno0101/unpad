@@ -2,12 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="welcome">Welcome to Unpad</h1>
-        <form>
-          <div class="form-group mt-3">
-            <input class="form-control form-control-lg" type="text" placeholder="Search...">
-          </div>
-        </form>
+        <div class="welcome">
+          <h1>Hello, David.</h1>
+          <h2>Welcome to Unpad</h2>
+        </div>
       </div>
     </div>
   </div>

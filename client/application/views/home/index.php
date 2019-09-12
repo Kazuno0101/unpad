@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="welcome">
-          <h1>Hello, David.</h1>
+          <h1 href="<?= base_url('home/index'); ?>">Hello, <b><?= $user['name']; ?></b>.</h1>
           <h2>Welcome to Unpad</h2>
         </div>
       </div>

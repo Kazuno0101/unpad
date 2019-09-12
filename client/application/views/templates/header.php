@@ -30,16 +30,23 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              API Mahasiswa
+              API List
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/dosen">Dosen</a>
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/mahasiswa">Mahasiswa</a>
               <a class="dropdown-item" href="<?= base_url() ?>mahasiswa/MahasiswaMaster/mataKuliah">Mata Kuliah</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="<?= base_url() ?>kepegawaian/KepegawaianMaster/absensi">Absensi</a>
+              <a class="dropdown-item" href="<?= base_url() ?>kepegawaian/KepegawaianMaster/jabatan">Jabatan</a>
+              <a class="dropdown-item" href="<?= base_url() ?>kepegawaian/KepegawaianMaster/karyawan">Karyawan</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="<?= base_url() ?>perpustakaan/PerpustakaanMaster/anggota">Anggota</a>
+              <a class="dropdown-item" href="<?= base_url() ?>perpustakaan/PerpustakaanMaster/buku">Buku</a>
+              <a class="dropdown-item" href="<?= base_url() ?>perpustakaan/PerpustakaanMaster/transaksi">Transaksi</a>
+              <div class="dropdown-divider"></div>
             </div>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url() ?>about">About</a>
           </li>

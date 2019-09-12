@@ -7,78 +7,74 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-
-class Mahasiswa extends REST_Controller
+class jabatan extends REST_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("mahasiswa/Mahasiswa_model");
+        $this->load->model("kepegawaian/jabatan_model");
     }
 
     public function index_get()
     {
-        $nim = $this->get("nim");
-        if ($nim === null) {
-            $mahasiswa = $this->Mahasiswa_model->getMahasiswa();
+        $Kode_jabatan = $this->get("Kode_jabatan");
+        if ($Kode_jabatan === null) {
+            $jabatan = $this->jabatan_model->getjabatan();
         } else {
-            $mahasiswa = $this->Mahasiswa_model->getMahasiswa($nim);
+            $jabatan = $this->jabatan_model->getjabatan($Kode_jabatan);
         }
-
-        if ($mahasiswa) {
+        if ($jabatan) {
             $this->response([
                 'status' => true,
-                'data' => $mahasiswa
+                'data' => $jabatan
             ], REST_Controller::HTTP_OK);
         } else {
             $this->response([
                 'status' => false,
-                'message' => "nim not found"
-            ], REST_Controller::HTTP_NOT_FOUND);
+                'message' => "Kode_jabatan not found"
+            ], REST_Controller::http_not_found);
         }
     }
-
     public function index_delete()
     {
-        $nim = $this->delete("nim");
+        $Kode_jabatan = $this->delete("Kode_jabatan");
 
-        if ($nim === null) {
+        if ($Kode_jabatan === null) {
             $this->response([
                 'status' => false,
-                'message' => "provide an nim"
+                'message' => "provide an nip"
             ], REST_Controller::HTTP_BAD_REQUEST);
         } else {
-            if ($this->Mahasiswa_model->deleteMahasiswa($nim) > 0) {
+            if ($this->jabatan_model->deletejabatan($Kode_jabatan) > 0) {
                 // ok
                 $this->response([
                     'status' => true,
-                    'data' => $nim,
+                    'data' => $Kode_jabatan,
                     'message' => "deleted."
-                ], REST_Controller::HTTP_OK);
+                ], REST_Controller::HTTP_NO_CONTENT);
             } else {
-                // nim not found
+                // nip not found
                 $this->response([
                     'status' => false,
-                    'message' => "nim not found"
+                    'message' => "Kode_jabatan not found"
                 ], REST_Controller::HTTP_NOT_FOUND);
             }
         }
     }
-
     public function index_post()
     {
         $data = [
-            "nim" => $this->post("nim"),
-            "nama_mhs" => $this->post("nama_mhs"),
-            "tgl_lahir" => $this->post("tgl_lahir"),
-            "alamat" => $this->post("alamat"),
-            "jenis_kelamin" => $this->post("jenis_kelamin")
+            "Kode_jabatan" => $this->post("Kode_jabatan"),
+            "Id_karyawan" => $this->post("Id_karyawan"),
+            "Jabatan" => $this->post("Jabatan")
+
         ];
 
-        if ($this->Mahasiswa_model->createMahasiswa($data) > 0) {
+        if ($this->jabatan_model->createjabatan($data) > 0) {
             $this->response([
                 'status' => true,
-                'message' => "new Mahasiswa has been created."
+                'message' => "new jabatan has been created."
             ], REST_Controller::HTTP_CREATED);
         } else {
             $this->response([
@@ -90,19 +86,16 @@ class Mahasiswa extends REST_Controller
 
     public function index_put()
     {
-        $nim = $this->put("nim");
-
+        $Kode_jabatan = $this->put("Kode_jabatan");
         $data = [
-            "nama_mhs" => $this->put("nama_mhs"),
-            "tgl_lahir" => $this->put("tgl_lahir"),
-            "alamat" => $this->put("alamat"),
-            "jenis_kelamin" => $this->put("jenis_kelamin")
+            "Id_karyawan" => $this->put("Id_karyawan"),
+            "Jabatan" => $this->put("Jabatan")
         ];
 
-        if ($this->Mahasiswa_model->updateMahasiswa($data, $nim) > 0) {
+        if ($this->jabatan_model->updatejabatan($data, $Kode_jabatan) > 0) {
             $this->response([
                 'status' => true,
-                'message' => "data Mahasiswa has been updated."
+                'message' => "data jabatan has been updated."
             ], REST_Controller::HTTP_OK);
         } else {
             $this->response([

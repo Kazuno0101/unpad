@@ -7,59 +7,58 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . 'libraries/Format.php';
 
-
-class Mahasiswa extends REST_Controller
+class Transaksi extends REST_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("mahasiswa/Mahasiswa_model");
+        $this->load->model("perpustakaan/Transaksi_model");
     }
 
     public function index_get()
     {
-        $nim = $this->get("nim");
-        if ($nim === null) {
-            $mahasiswa = $this->Mahasiswa_model->getMahasiswa();
+        $No_Pinjam = $this->get("No_Pinjam");
+        if ($No_Pinjam === null) {
+            $transaksi = $this->Transaksi_model->getTransaksi();
         } else {
-            $mahasiswa = $this->Mahasiswa_model->getMahasiswa($nim);
+            $transaksi = $this->Transaksi_model->getTransaksi($No_Pinjam);
         }
 
-        if ($mahasiswa) {
+        if ($transaksi) {
             $this->response([
                 'status' => true,
-                'data' => $mahasiswa
+                'data' => $transaksi
             ], REST_Controller::HTTP_OK);
         } else {
             $this->response([
                 'status' => false,
-                'message' => "nim not found"
+                'message' => "No_Pinjam not found"
             ], REST_Controller::HTTP_NOT_FOUND);
         }
     }
 
     public function index_delete()
     {
-        $nim = $this->delete("nim");
+        $No_Pinjam = $this->delete("No_Pinjam");
 
-        if ($nim === null) {
+        if ($No_Pinjam === null) {
             $this->response([
                 'status' => false,
-                'message' => "provide an nim"
+                'message' => "provide an No_Pinjam"
             ], REST_Controller::HTTP_BAD_REQUEST);
         } else {
-            if ($this->Mahasiswa_model->deleteMahasiswa($nim) > 0) {
+            if ($this->Transaksi_model->deleteTransaksi($No_Pinjam) > 0) {
                 // ok
                 $this->response([
                     'status' => true,
-                    'data' => $nim,
+                    'data' => $No_Pinjam,
                     'message' => "deleted."
-                ], REST_Controller::HTTP_OK);
+                ], REST_Controller::HTTP_NO_CONTENT);
             } else {
-                // nim not found
+                // No_Pinjam not found
                 $this->response([
                     'status' => false,
-                    'message' => "nim not found"
+                    'message' => "No_Pinjam not found"
                 ], REST_Controller::HTTP_NOT_FOUND);
             }
         }
@@ -68,17 +67,18 @@ class Mahasiswa extends REST_Controller
     public function index_post()
     {
         $data = [
-            "nim" => $this->post("nim"),
-            "nama_mhs" => $this->post("nama_mhs"),
-            "tgl_lahir" => $this->post("tgl_lahir"),
-            "alamat" => $this->post("alamat"),
-            "jenis_kelamin" => $this->post("jenis_kelamin")
+            "No_Pinjam" => $this->post("No_Pinjam"),
+            "Nama" => $this->post("Nama"),
+            "ID_Anggota" => $this->post("ID_Anggota"),
+            "No_Buku" => $this->post("No_Buku"),
+            "Tgl_Pinjam" => $this->post("Tgl_Pinjam"),
+            "Tgl_Kembali" => $this->post("Tgl_Kembali"),
         ];
 
-        if ($this->Mahasiswa_model->createMahasiswa($data) > 0) {
+        if ($this->Transaksi_model->createTransaksi($data) > 0) {
             $this->response([
                 'status' => true,
-                'message' => "new Mahasiswa has been created."
+                'message' => "new transaksi has been created."
             ], REST_Controller::HTTP_CREATED);
         } else {
             $this->response([
@@ -90,19 +90,19 @@ class Mahasiswa extends REST_Controller
 
     public function index_put()
     {
-        $nim = $this->put("nim");
-
+        $No_Pinjam = $this->put("No_Pinjam");
         $data = [
-            "nama_mhs" => $this->put("nama_mhs"),
-            "tgl_lahir" => $this->put("tgl_lahir"),
-            "alamat" => $this->put("alamat"),
-            "jenis_kelamin" => $this->put("jenis_kelamin")
+            "Nama" => $this->put("Nama"),
+            "ID_Anggota" => $this->put("ID_Anggota"),
+            "No_Buku" => $this->put("No_Buku"),
+            "Tgl_Pinjam" => $this->put("Tgl_Pinjam"),
+            "Tgl_Kembali" => $this->put("Tgl_Kembali")
         ];
 
-        if ($this->Mahasiswa_model->updateMahasiswa($data, $nim) > 0) {
+        if ($this->Transaksi_model->updateTransaksi($data, $No_Pinjam) > 0) {
             $this->response([
                 'status' => true,
-                'message' => "data Mahasiswa has been updated."
+                'message' => "data Buku has been updated."
             ], REST_Controller::HTTP_OK);
         } else {
             $this->response([

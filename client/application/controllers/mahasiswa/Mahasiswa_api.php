@@ -38,7 +38,7 @@ class Mahasiswa_api extends CI_Controller
             $data['judul'] = 'Detail Data Mahasiswa';
             $data['mahasiswa'] = $this->Mahasiswa_model->getDataById($api, $idName, $id);
             $this->load->view('templates/header', $data);
-            $this->load->view('mahasiswa/detailMahasiswa', $data);
+            $this->load->view('mahasiswa/detail/detailMahasiswa', $data);
             $this->load->view('templates/footer');
       }
 
@@ -53,7 +53,7 @@ class Mahasiswa_api extends CI_Controller
 
             if ($this->form_validation->run() == false) {
                   $this->load->view('templates/header', $data);
-                  $this->load->view('mahasiswa/ubahMahasiswa', $data);
+                  $this->load->view('mahasiswa/edit/ubahMahasiswa', $data);
                   $this->load->view('templates/footer');
             } else {
                   $this->Mahasiswa_model->ubahDataMahasiswa();

@@ -17,30 +17,31 @@
 
             <div class="row">
                   <div class="col-md-6">
-                        <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/tambah/mahasiswa" class="btn btn-block btn-dark">Tambah data <?= $api ?></a>
+                        <a href="<?= base_url(); ?>kepegawaian/Jabatan_api/tambah/jabatan" class="btn btn-block btn-dark">Tambah data Jabatan</a>
                   </div>
             </div>
 
             <div class="row mt-3">
                   <div class="col-md-6">
-                        <h3>Daftar Mahasiswa</h3>
-                        <?php if (empty($mahasiswa)) { ?>
+                        <h3>Daftar Jabatan</h3>
+                        <?php if (empty($jabatan)) { ?>
                               <div class="alert alert-danger" role="alert">
-                                    data mahasiswa tidak ditemukan.
+                                    data jabatan tidak ditemukan.
                               </div>
                         <?php }; ?>
                         <ul class="list-group">
-                              <?php foreach ($mahasiswa as $mhs) { ?>
+                              <?php foreach ($jabatan as $jbt) { ?>
                                     <li class="list-group-item">
-                                          <?= $mhs['nama_mhs']; ?>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/hapus/<?= $mhs['nim']; ?>" class="badge badge-danger float-right" onclick="return confirm('Apakah data akan dihapus?')">hapus</a>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/ubah/mahasiswa/nim/<?= $mhs['nim']; ?>" class="badge badge-success mr-2 float-right">ubah</a>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/detail/mahasiswa/nim/<?= $mhs['nim']; ?>" class="badge badge-primary mr-2 float-right">detail</a>
+                                          <?= $jbt['Jabatan']; ?>
+                                          <a href="<?= base_url(); ?>kepegawaian/Jabatan_api/hapus/<?= $jbt['Kode_jabatan']; ?>" class="badge badge-danger float-right" onclick="return confirm('Apakah data akan dihapus?')">hapus</a>
+                                          <a href=" <?= base_url(); ?>kepegawaian/Jabatan_api/ubah/jabatan/Kode_jabatan/<?= $jbt['Kode_jabatan']; ?>" class="badge badge-success mr-2 float-right">ubah</a>
+                                          <a href="<?= base_url(); ?>kepegawaian/Jabatan_api/detail/jabatan/Kode_jabatan/<?= $jbt['Kode_jabatan']; ?>" class="badge badge-primary mr-2 float-right">detail</a>
                                     </li>
                               <?php }; ?>
+
                         </ul>
                   </div>
             </div>
       </div>
-
+      </div>
 </section>

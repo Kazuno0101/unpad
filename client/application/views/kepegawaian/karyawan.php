@@ -17,25 +17,25 @@
 
             <div class="row">
                   <div class="col-md-6">
-                        <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/tambah/mahasiswa" class="btn btn-block btn-dark">Tambah data <?= $api ?></a>
+                        <a href="<?= base_url(); ?>kepegawaian/Karyawan_api/tambah/karyawan" class="btn btn-block btn-dark">Tambah data <?= $api ?></a>
                   </div>
             </div>
 
             <div class="row mt-3">
                   <div class="col-md-6">
-                        <h3>Daftar Mahasiswa</h3>
-                        <?php if (empty($mahasiswa)) { ?>
+                        <h3>Daftar Karyawan</h3>
+                        <?php if (empty($karyawan)) { ?>
                               <div class="alert alert-danger" role="alert">
-                                    data mahasiswa tidak ditemukan.
+                                    data karyawan tidak ditemukan.
                               </div>
                         <?php }; ?>
                         <ul class="list-group">
-                              <?php foreach ($mahasiswa as $mhs) { ?>
+                              <?php foreach ($karyawan as $kry) { ?>
                                     <li class="list-group-item">
-                                          <?= $mhs['nama_mhs']; ?>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/hapus/<?= $mhs['nim']; ?>" class="badge badge-danger float-right" onclick="return confirm('Apakah data akan dihapus?')">hapus</a>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/ubah/mahasiswa/nim/<?= $mhs['nim']; ?>" class="badge badge-success mr-2 float-right">ubah</a>
-                                          <a href="<?= base_url(); ?>mahasiswa/Mahasiswa_api/detail/mahasiswa/nim/<?= $mhs['nim']; ?>" class="badge badge-primary mr-2 float-right">detail</a>
+                                          <?= $kry['Nama']; ?>
+                                          <a href="<?= base_url(); ?>kepegawaian/Karyawan_api/hapus/<?= $kry['Id_karyawan']; ?>" class="badge badge-danger float-right" onclick="return confirm('Apakah data akan dihapus?')">hapus</a>
+                                          <a href="<?= base_url(); ?>kepegawaian/Karyawan_api/ubah/karyawan/Id_karyawan/<?= $kry['Id_karyawan']; ?>" class="badge badge-success mr-2 float-right">ubah</a>
+                                          <a href="<?= base_url(); ?>kepegawaian/Karyawan_api/detail/karyawan/Id_karyawan/<?= $kry['Id_karyawan']; ?>" class="badge badge-primary mr-2 float-right">detail</a>
                                     </li>
                               <?php }; ?>
                         </ul>

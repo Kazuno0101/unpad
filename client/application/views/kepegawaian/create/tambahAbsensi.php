@@ -19,6 +19,20 @@
                                     </div>
                               </div>
                               <div class="form-group row">
+                                    <label for="Jam_masuk" class="col-md-2 col-form-label">Jam_masuk</label>
+                                    <div class="col-md-10">
+                                          <input type="time" class="form-control" name="Jam_masuk" id="Jam_masuk" step="2" placeholder="Jam masuk">
+                                          <small class=" form-text text-danger"><?= form_error("Jam_masuk") ?></small>
+                                    </div>
+                              </div>
+                              <div class="form-group row">
+                                    <label for="Jam_pulang" class="col-md-2 col-form-label">Jam pulang</label>
+                                    <div class="col-md-10">
+                                          <input type="time" class="form-control" name="Jam_pulang" id="Jam_pulang" step="2" placeholder="Jam pulang">
+                                          <small class=" form-text text-danger"><?= form_error("Jam_pulang") ?></small>
+                                    </div>
+                              </div>
+                              <div class="form-group row">
                                     <label for="Tanggal_kerja" class="col-md-2 col-form-label">Tanggal Kerja</label>
                                     <div class="col-md-10">
                                           <input type="date" class="form-control" name="Tanggal_kerja" id="Tanggal_kerja" placeholder="">

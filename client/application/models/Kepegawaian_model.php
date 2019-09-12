@@ -84,6 +84,8 @@ class Kepegawaian_model extends CI_model
         $data = [
             "Id_absensi" => $this->input->post('Id_absensi', true),
             "Id_karyawan" => $this->input->post('Id_karyawan', true),
+            "Jam_masuk" => $this->input->post('Jam_masuk', true),
+            "Jam_pulang" => $this->input->post('Jam_pulang', true),
             "Tanggal_kerja" => $this->input->post('Tanggal_kerja', true)
         ];
 
@@ -171,6 +173,8 @@ class Kepegawaian_model extends CI_model
         $data = [
             "Id_absensi" => $this->input->post('Id_absensi', true),
             "Id_karyawan" => $this->input->post('Id_karyawan', true),
+            "Jam_masuk" => $this->input->post('Jam_masuk', true),
+            "Jam_pulang" => $this->input->post('Jam_pulang', true),
             "Tanggal_kerja" => $this->input->post('Tanggal_kerja', true)
         ];
 

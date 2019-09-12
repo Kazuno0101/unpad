@@ -92,8 +92,8 @@ class absensi extends REST_Controller
         $Id_absensi = $this->put("Id_absensi");
         $data = [
             "Id_karyawan" => $this->put("Id_karyawan"),
-            "Jam_masuk" => $this->post("Jam_masuk"),
-            "Jam_pulang" => $this->post("Jam_pulang"),
+            "Jam_masuk" => $this->put("Jam_masuk"),
+            "Jam_pulang" => $this->put("Jam_pulang"),
             "Tanggal_kerja" => $this->put("Tanggal_kerja")
         ];
 

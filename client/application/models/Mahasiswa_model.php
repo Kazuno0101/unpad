@@ -188,4 +188,24 @@ class Mahasiswa_model extends CI_model
         $result = json_decode($response->getBody()->getContents(), true);
         return $result;
     }
+
+    // function buat_kode()
+    // {
+    //     $database_mahasiswa = getAllData("matakuliah");
+    //     $this->database_mahasiswa->select('RIGHT(matakuliah.kode_mk,3) as kode', FALSE);
+    //     $this->database_mahasiswa->order_by('kode_mk', 'DESC');
+    //     $this->database_mahasiswa->limit(1);
+    //     $query = $this->database_mahasiswa->get('matakuliah');      //cek dulu apakah ada sudah ada kode di tabel.    
+    //     if ($query->num_rows() <> 0) {
+    //         //jika kode ternyata sudah ada.      
+    //         $data = $query->row();
+    //         $kode = intval($data->kode) + 1;
+    //     } else {
+    //         //jika kode belum ada      
+    //         $kode = 1;
+    //     }
+    //     $kodemax = str_pad($kode, 3, "0", STR_PAD_LEFT);
+    //     $kodejadi = "MK" . $kodemax;
+    //     return $kodejadi;
+    // }
 }

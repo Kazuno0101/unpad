@@ -4,12 +4,12 @@
 
     <?php if ($this->session->flashdata("flash")) { ?>
 
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        New data <strong> Success </strong> <?= $this->session->flashdata("flash"); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
     <?php }; ?>
 
@@ -45,11 +45,14 @@
     </div>
     <div class="col-md-9">
       <select class="form-control" name="file" id="file">
-        <?php foreach ($list as $l) { ?>
-        <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
+        <?php foreach ($list1 as $l) { ?>
+          <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
         <?php } ?>
         <?php foreach ($list2 as $l) { ?>
-        <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
+          <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
+        <?php } ?>
+        <?php foreach ($list3 as $l) { ?>
+          <option value="<?php echo $l; ?>"><?php echo $l; ?> </option>
         <?php } ?>
     </div>
     </select>
@@ -84,6 +87,12 @@
 
 
 <script type="text/javascript">
+  function UpperCaseFirstLetter(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   $(document).ready(function() {
     $('#btnFile').click(function() {
       var file = $("#file").val();
@@ -102,11 +111,11 @@
 
       } else if (type == "DELETE") {
 
-        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/MahasiswaMaster/" + split2[0]);
+        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/" + UpperCaseFirstLetter(split[1]) + "Master/" + split2[0]);
 
       } else if (type == "PUT") {
 
-        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/MahasiswaMaster/" + split2[0]);
+        $("#url").val("http://localhost/pkl/tugas/client/" + split[1] + "/" + UpperCaseFirstLetter(split[1]) + "Master/" + split2[0]);
 
       }
     });

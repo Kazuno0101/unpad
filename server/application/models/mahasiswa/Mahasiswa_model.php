@@ -30,6 +30,7 @@ class Mahasiswa_model extends CI_Model
 
     public function createMahasiswa($data)
     {
+
         $this->database_mahasiswa->insert("mahasiswa", $data);
         return $this->database_mahasiswa->affected_rows();
     }

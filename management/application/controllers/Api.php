@@ -69,8 +69,9 @@ class Api extends CI_Controller
 
         $this->ftp->connect($config);
 
-        $data["list"] = $this->ftp->list_files('/api/');
-        $data["list2"] = $this->ftp->list_files('/mahasiswa/');
+        $data["list1"] = $this->ftp->list_files('/mahasiswa/');
+        $data["list2"] = $this->ftp->list_files('/kepegawaian/');
+        $data["list3"] = $this->ftp->list_files('/perpustakaan/');
 
         $this->form_validation->set_rules("apiName", "Api Name", "required");
         $this->form_validation->set_rules("url", "URL", "required|min_length[25]");

@@ -13,11 +13,13 @@ class Jabatan_api extends CI_Controller
       {
             $data['judul'] = 'Form Tambah Data Jabtan';
 
+            $data['karyawan'] = $this->Kepegawaian_model->getAllData("Karyawan");
+
             $this->form_validation->set_rules('Kode_jabatan', 'kode jabatan', 'required');
 
             if ($this->form_validation->run() == false) {
                   $this->load->view('templates/header', $data);
-                  $this->load->view('kepegawaian/create/tambahJabatan');
+                  $this->load->view('kepegawaian/create/tambahJabatan', $data);
                   $this->load->view('templates/footer');
             } else {
                   $this->Kepegawaian_model->tambahDataJabatan();

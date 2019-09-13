@@ -5,7 +5,7 @@
                         <h3 class="mb-5">Tambah Dosen</h3>
                         <form method="post">
                               <div class="form-group row">
-                                    <label for="nip" class="col-md-2 col-form-label">NIM</label>
+                                    <label for="nip" class="col-md-2 col-form-label">NIP</label>
                                     <div class="col-md-10">
                                           <input type="text" class="form-control" name="nip" id="nip" placeholder="NIP Dosen">
                                     </div>

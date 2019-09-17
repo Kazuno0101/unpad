@@ -12,7 +12,6 @@ class MataKuliah_api extends CI_Controller
       public function tambah()
       {
             $data['judul'] = 'Form Tambah Data Mata Kuliah';
-            $data['kodeunik'] = $this->model_admin->buat_kode();
             $this->form_validation->set_rules('kode_mk', 'Kode Mata Kuliah', 'required');
 
             if ($this->form_validation->run() == false) {

@@ -12,6 +12,7 @@ class absensi_model extends CI_model
         parent::__construct();
         $this->database_kepegawaian = $this->load->database('database_kepegawaian', TRUE);
     }
+
     public function getabsensi($Id_absensi = null)
     {
 
@@ -22,6 +23,7 @@ class absensi_model extends CI_model
             return $this->database_kepegawaian->get_where("absensi", ["Id_absensi" => $Id_absensi])->result_array();
         }
     }
+
     public function deleteabsensi($Id_absensi)
     {
         $this->database_kepegawaian->delete("absensi", ["Id_absensi" => $Id_absensi]);
